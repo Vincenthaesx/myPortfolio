@@ -1,526 +1,629 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-    <head>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta charset="utf-8">
-        <title>Vincent Hais - Android - Web Developer</title>
-        <meta name="description" content="">
-        <meta name="author" content="">
+  <title>Vincent Hais — Développeur Android & Web Symfony</title>
+  <meta name="description" content="Portfolio de Vincent Hais, développeur Android natif (Kotlin/Java) et développeur Web PHP/Symfony. Mentor OpenClassrooms. Projets, expériences et recommandations." />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- SEO / Social -->
+<meta property="og:title" content="Vincent Hais — Développeur Android & Web Symfony" />
+<meta property="og:description" content="Développeur Android, Web, Admin Réseau & DevOps. Découvrez mes projets (Go4Lunch, Real Estate Manager, MyNews, MoodTracker, Daisy Wheel, Freelance), mon CV et une recommandation." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://vincenthais.dev" />
+<meta property="og:image" content="images/og-image.jpg" />
+<meta name="theme-color" content="#0ea5e9" />
 
-        <link rel="stylesheet" href="css/default.css">
-        <link rel="stylesheet" href="css/layout.css">
-        <link rel="stylesheet" href="css/media-queries.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
-        <script src="js/modernizr.js"></script>
-        <link rel="shortcut icon" href="favicon.png" >
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
-    </head>
+  <style>
+    /* ====== Reset & Base ====== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --bg: #0b1220; /* dark slate */
+      --bg-elev: #111a2e;
+      --text: #e5eef9;
+      --muted: #94a3b8;
+      --accent: #0ea5e9; /* cyan-500 */
+      --accent-2: #22d3ee; /* cyan-400 */
+      --card: #0f172a;
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+      --radius: 16px;
+      --container: 1140px;
+    }
 
-    <body>
+    /* Thème sombre par défaut */
+:root,
+:root[data-theme="dark"] {
+  --bg: #0b1220;
+  --bg-elev: #111a2e;
+  --text: #e5eef9;
+  --muted: #94a3b8;
+  --accent: #0ea5e9;
+  --accent-2: #22d3ee;
+  --card: #0f172a;
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+}
 
-        <header id="home">
+/* Thème clair quand dataset.theme = light */
+:root[data-theme="light"] {
+  --bg: #f8fafc;
+  --bg-elev: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --card: #ffffff;
+  --accent: #2563eb;
+  --accent-2: #3b82f6;
+  --shadow: 0 12px 28px rgba(2, 6, 23, 0.08);
+}
 
-            <nav id="nav-wrap">
+    .icon-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text); /* utilise ta variable de texte courante */
+  transition: color 0.3s ease, transform 0.2s ease;
+}
 
-                <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Voir le menu</a>
-                <a class="mobile-btn" href="#" title="Hide navigation">Cacher le menu</a>
+.icon-btn:hover {
+  color: var(--accent);
+  transform: scale(1.1);
+}
 
-                <ul id="nav" class="nav">
-                    <li class="current"><a class="smoothscroll" href="#home">Accueil</a></li>
-                    <li><a class="smoothscroll" href="#about">A propos</a></li>
-                    <li><a class="smoothscroll" href="#resume">CV</a></li>
-                    <li><a class="smoothscroll" href="#portfolio">Mes travaux</a></li>
-                    <li><a class="smoothscroll" href="#testimonials">Recommandations</a></li>
-                </ul> 
+.brand-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
 
-            </nav> 
+.icon-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; color: var(--text); background: var(--bg); line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(100% - 2rem, var(--container)); margin-inline: auto; }
+    .section { padding: 96px 0; position: relative; }
+    .section h2 { font-size: clamp(28px, 2.6vw, 38px); margin: 0 0 24px; letter-spacing: -0.02em; }
+    .muted { color: var(--muted); }
+    .tag { display:inline-block; padding: 6px 12px; border-radius: 999px; background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(34,211,238,0.15)); color: var(--accent-2); font-weight: 600; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .btn { display:inline-flex; align-items:center; gap:.6rem; padding: .9rem 1.2rem; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #06131f; font-weight: 800; box-shadow: var(--shadow); transition: transform .2s ease, filter .2s ease; }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+    .btn-outline { background: transparent; border: 1px solid rgba(148,163,184,.3); color: var(--text); }
 
-            <div class="row banner">
-                <div class="banner-text">
-                    <h1 class="responsive-headline"> Vincent Hais</h1>
-                    <h3> <span>Développeur Android Natif</span> et <span>Web Php/Symfony</span> actuellement en charge du développement des logiciels, de l'évolution de la base de données ainsi que de la gestion de l'ERP dans une PME. <br><br>
+    /* ====== Header / Nav ====== */
+    .skip { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip:focus { left: 12px; top: 12px; width:auto; height:auto; z-index:9999; padding: 8px 12px; background: #fff; color:#111827; border-radius: 8px; }
 
-                        <span>Mentor Openclassrooms</span> sur la formation <span>développeur d'application Android.</span><br><br>
-                        Continuez à scroller pour <a class="smoothscroll" href="#about">en savoir plus sur moi.</a></h3>
-                    <hr />
-                    <ul class="social">
-                        <li><a href="https://github.com/Vincenthaesx" target="_blank"><i class="fa fa-github"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/vincent-hais-946a5a165" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+    .nav {
+      position: sticky; top: 0; z-index: 1000; backdrop-filter: saturate(180%) blur(8px);
+      background: linear-gradient(180deg, rgba(2,6,23,0.8), rgba(2,6,23,0.3));
+      border-bottom: 1px solid rgba(148,163,184,.15);
+    }
+    @media (prefers-color-scheme: light) {
+      .nav { background: rgba(255,255,255,.75); }
+    }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .brand { display:flex; align-items:center; gap:.75rem; font-weight:800; letter-spacing:.02em; }
+    .logo { width:36px; height:36px; border-radius:12px; background: radial-gradient(120px 60px at 20% 20%, var(--accent) 0%, var(--accent-2) 30%, transparent 65%), #0b1220; box-shadow: inset 0 0 0 1px rgba(148,163,184,.25), 0 6px 20px rgba(2,6,23,.35); }
+    .brand span { font-size: 16px; }
 
-            <p class="scrolldown">
-                <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
+    .nav-links { display:flex; align-items:center; gap:1rem; }
+    .nav-links a { padding: .5rem .75rem; border-radius: 10px; color: var(--muted); font-weight:600; }
+    .nav-links a.active, .nav-links a:hover { color: var(--text); background: rgba(148,163,184,.12); }
+
+    .nav-cta { display:flex; align-items:center; gap:.6rem; }
+    .icon-btn { display:inline-grid; place-items:center; width:40px; height:40px; border-radius: 12px; border:1px solid rgba(148,163,184,.25); background: var(--bg-elev); }
+
+    .hamburger { display:none; }
+    @media (max-width: 900px) {
+      .nav-links { display:none; position: absolute; left: 1rem; right: 1rem; top: 70px; background: var(--bg-elev); padding: 12px; border-radius: 12px; box-shadow: var(--shadow); flex-direction: column; }
+      .nav-links.show { display:flex; }
+      .hamburger { display:inline-grid; }
+    }
+
+    /* ====== Hero ====== */
+    .hero {
+      position: relative;
+      padding: 110px 0 70px;
+      background: radial-gradient(1000px 500px at 20% 0%, rgba(14,165,233,.20), transparent 60%), radial-gradient(800px 400px at 80% 20%, rgba(34,211,238,.14), transparent 60%);
+      overflow: clip;
+    }
+    .hero-grid { display:grid; grid-template-columns: .85fr 1.15fr; gap: 48px; align-items:center; }
+    @media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; } }
+
+    .title-xl { font-size: clamp(36px, 6.4vw, 72px); line-height: 1.05; letter-spacing:-0.035em; margin: 0 0 10px; }
+    .title-xl strong { background: linear-gradient(135deg, var(--accent-2), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .subtitle { font-size: clamp(16px, 2.4vw, 20px); color: var(--muted); }
+    .hero-actions { display:flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+
+    .avatar-wrap { justify-self:center; }
+    .avatar { width: 220px; height: 220px; border-radius: 28px; overflow: hidden; position: relative; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.2); }
+    .avatar::after { content:""; position:absolute; inset:0; background: radial-gradient(300px 200px at 70% 0%, rgba(14,165,233,.18), transparent 60%); pointer-events:none; }
+
+    .socials { display:flex; gap: 10px; margin-top: 14px; }
+    .socials a { display:inline-grid; place-items:center; width: 44px; height: 44px; border-radius: 12px; border:1px solid rgba(148,163,184,.25); background: var(--bg-elev); transition: transform .18s ease, border-color .18s ease; }
+    .socials a:hover { transform: translateY(-2px); border-color: rgba(14,165,233,.7); }
+
+    /* ====== About ====== */
+    .about { background: linear-gradient(180deg, transparent, rgba(148,163,184,.08)); }
+    .about-grid { display:grid; grid-template-columns: 260px 1fr; gap: 28px; align-items:start; }
+    .about-grid img { width: 100%; height: auto; border-radius: 16px; border:1px solid rgba(148,163,184,.2); }
+    @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; } }
+
+    .stats { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+    .stat { background: var(--card); border:1px solid rgba(148,163,184,.16); border-radius: 14px; padding: 16px; text-align:center; }
+    .stat b { font-size: 24px; display:block; }
+
+    /* ====== Skills ====== */
+    .skill-chips { display:flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .chip { padding: 10px 12px; border-radius: 999px; background: rgba(148,163,184,.12); border:1px solid rgba(148,163,184,.2); font-weight: 600; }
+
+    /* ====== Timeline (CV) ====== */
+    .timeline { position: relative; margin-top: 16px; }
+    .timeline::before { content:""; position:absolute; left: 10px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--accent), transparent); opacity:.6; }
+    .t-item { position: relative; padding-left: 42px; padding-bottom: 26px; }
+    .t-item:last-child { padding-bottom: 0; }
+    .t-item::marker { content:""; }
+    .t-dot { position:absolute; left: 2px; top: 4px; width: 18px; height: 18px; border-radius: 999px; background: var(--bg); border:3px solid var(--accent); box-shadow: 0 0 0 4px rgba(14,165,233,.15); }
+    .t-card { background: var(--card); border:1px solid rgba(148,163,184,.16); border-radius: 14px; padding: 16px 16px 10px; box-shadow: var(--shadow); }
+    .t-card h3 { margin: 0 0 6px; font-size: 18px; }
+    .t-meta { display:flex; flex-wrap:wrap; gap:10px; font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+
+    /* ====== Portfolio ====== */
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .card { grid-column: span 6; background: var(--card); border:1px solid rgba(148,163,184,.16); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); display:flex; flex-direction:column; }
+    .card figure { position: relative; aspect-ratio: 16 / 10; background: #0b1220; }
+    .card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.1) contrast(1.02); transition: transform .35s ease; }
+    .card:hover img { transform: scale(1.05); }
+    .card .body { padding: 16px; }
+    .card h3 { margin: 0 0 6px; }
+    .card p { margin: 0 0 12px; color: var(--muted); }
+    .links { display:flex; gap: 10px; flex-wrap:wrap; }
+    @media (max-width: 900px) { .card { grid-column: span 12; } }
+
+    /* ====== Testimonials ====== */
+    blockquote { margin: 0; background: var(--card); border:1px solid rgba(148,163,184,.16); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); font-size: 18px; }
+    cite { display:block; margin-top: 12px; color: var(--muted); font-style: normal; }
+
+    /* ====== Footer ====== */
+    footer { padding: 42px 0 60px; color: var(--muted); border-top: 1px solid rgba(148,163,184,.16); background: linear-gradient(180deg, rgba(148,163,184,.08), transparent 30%); }
+    .f-row { display:flex; align-items:center; justify-content:space-between; gap: 12px; flex-wrap: wrap; }
+
+    /* ====== Reveal Animations ====== */
+    .reveal { opacity: 0; transform: translateY(16px); }
+    .reveal.show { opacity:1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+
+    /* Back-to-top */
+    #toTop { position: fixed; right: 18px; bottom: 18px; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; background: var(--bg-elev); border: 1px solid rgba(148,163,184,.25); box-shadow: var(--shadow); opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .2s ease; }
+    #toTop.show { opacity: 1; pointer-events: auto; }
+    #toTop:hover { transform: translateY(-2px); }
+
+    /* Code-friendly focus styles */
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <!-- ====== NAV ====== -->
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <div class="brand">
+  <img src="images/profilepic.jfif" alt="Vincent Hais" class="brand-avatar" />
+  <span>Vincent Hais</span>
+</div>
+
+      <nav aria-label="Navigation principale">
+        <button class="icon-btn hamburger" id="menuBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Ouvrir le menu">
+          <!-- burger icon -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Accueil</a></li>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#resume">CV</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Recommandations</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="icon-btn" href="mailto:haisvincentapb@hotmail.com" title="Me contacter" aria-label="Me contacter par email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"></path><path d="m22 6-10 7L2 6"></path></svg>
+        </a>
+        <button class="icon-btn" id="themeBtn" title="Changer de thème" aria-label="Basculer clair/sombre">
+          <svg id="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section id="home" class="hero section">
+    <div class="container hero-grid reveal">
+      <div>
+        <div class="tag">Android • Web Symfony</div>
+        <h1 class="title-xl">Bonjour, je suis <strong>Vincent Hais</strong></h1>
+        <p class="subtitle">Développeur <b>Android natif (Kotlin/Java)</b> & <b>Web PHP/Symfony</b>. Mentor <b>OpenClassrooms</b>. Je conçois des apps efficaces, maintenables et orientées métier.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#portfolio">Voir mes projets
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn-outline" href="cv.pdf" download title="Télécharger mon CV">Télécharger mon CV</a>
+        </div>
+        <div class="socials" aria-label="Réseaux sociaux">
+          <a href="https://github.com/Vincenthaesx" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.36-1.77-1.36-1.77-1.11-.76.08-.75.08-.75 1.22.09 1.86 1.26 1.86 1.26 1.09 1.86 2.86 1.33 3.56 1.02.11-.79.43-1.33.78-1.64-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.25-3.22-.13-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.25 2.86.12 3.16.78.84 1.25 1.91 1.25 3.22 0 4.61-2.8 5.62-5.47 5.92.44.38.83 1.12.83 2.26v3.35c0 .32.21.69.82.58A12 12 0 0 0 12 .5Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/vincent-hais-946a5a165" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.44-2.14 2.94v5.67H9.36V9h3.4v1.56h.05c.47-.89 1.62-1.83 3.34-1.83 3.57 0 4.23 2.35 4.23 5.4v6.32ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+   
+  </section>
+
+  <main id="main">
+    <!-- ====== ABOUT ====== -->
+    <section id="about" class="section about">
+      <div class="container reveal">
+        <h2>À propos</h2>
+        <div class="about-grid">
+          <img src="images/profilepic.jfif" alt="Photo de profil de Vincent Hais" loading="lazy" />
+          <div>
+            <p>
+              Diplômé d’un <b>RNCP niveau II (bac +4)</b> de développeur d’applications (OpenClassrooms), j’ai plus de <b>7 ans d’expérience</b> en <b>Android natif</b> et en <b>Web PHP/Symfony</b>.
+              Passionné par l’informatique, je suis également <b>Mentor OpenClassrooms</b> pour accompagner de nouveaux développeurs.
+            </p>
+            <p>
+              Au fil des projets, j’ai manipulé des technologies variées : <b>Bluetooth</b>, <b>NFC</b>, <b>Zebra ZBI</b>, <b>Docker</b>, <b>Linux</b>, <b>SQL Server</b>/<b>MySQL</b>, intégration d’<b>API</b>, et j’accorde une attention particulière à la <b>qualité</b>, aux <b>tests</b> et à la <b>sécurité</b>.
             </p>
 
-        </header>
-
-        <section id="about">
-
-            <div class="row">
-
-                <div class="three columns">
-
-                    <img class="profile-pic"  src="images/profilepic.jfif" alt="" /> 
-
-                </div>
-
-                <div class="nine columns main-col">
-
-                    <h2>A propos</h2>
-                    <br>
-
-                    <p style="color: white;">
-                        Actuellement en possession d'un diplôme de niv.II (bac +4) de développeur d'applications spécialisé en Android, je possède aujourd'hui plus de 5 ans d'expérience en tant que développeur Android et développeur Php/Symfony.<br><br>
-                        Depuis toujours passionné par l'informatique, j'ai également décidé de rejoindre l'équipe d'Openclassrooms en tant que Mentor afin d'accompagner et de former de nouveaux développeurs dans leur parcours. <br> <br>
-                        Au cours de mes différentes expériences, j'ai pu apprendre et utiliser de nombreuses technologies très diverses, Bluetooth, NFC, ZBI (Zebra BASIC interpreter), gestion de serveur sous Linux ... <br><br>
-                        Je suis également à l'aise dans plusieurs langages de programmation, Java, Kotlin, PHP (HTML, CSS, Javascript, Jquery..), Python, VBA, Powershell, SQLServer (Gestion de base de données) ... ce qui me rend particulièrement polyvalent, autonome et force de proposition. <br> <br>
-                    </p>
-
-                  <!--  <div class="row">
-
-                        <div class="columns download">
-                            <p>
-                                <a href="cv.pdf" class="button"><i class="fa fa-download"></i>Télécharger mon CV</a>
-                            </p>
-                        </div>
-
-                    </div>
-                -->
-
-                </div> 
-
+            <div class="skill-chips" aria-label="Compétences principales">
+              <span class="chip">Kotlin</span>
+              <span class="chip">Java</span>
+              <span class="chip">Android Studio</span>
+              <span class="chip">PHP</span>
+              <span class="chip">Symfony 6</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">jQuery</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">SQL Server</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Linux</span>
+              <span class="chip">NFC</span>
+              <span class="chip">Bluetooth</span>
+              <span class="chip">Zebra (ZBI)</span>
             </div>
 
-        </section>
-
-        <section id="resume">
-
-            <div class="row education">
-
-                <div class="three columns header-col">
-                    <h1><span>Etudes</span></h1>
-                </div>
-
-                <div class="nine columns main-col">
-
-                    <div class="row item">
-
-                        <div class="twelve columns">
-
-                            <h3>Développeur d'applications</h3>
-                            <h3>Diplôme RNCP niv.II (bac +4)</h3>
-                            <p class="info"> Openclassrooms <span>&bull;</span> <em class="date">Juin 2018 à Juin 2019</em> </p>
-
-
-                            <p> 
-                            <ul>
-                                <li>Analyser un cahier des charges et choisir une solution technique adaptée parmi les solutions existantes.</li>
-                                <li>Concevoir l’architecture technique d’une application à l’aide de diagrammes UML.</li>
-                                <li>Créer des applications Android grâce aux langages Java et Kotlin et à l'environnement de développement Android Studio.</li>
-                                <li>Communiquer avec une base de données pour stocker et requêter des informations.</li>
-                                <li>Mettre en œuvre des tests unitaires, des tests d'intégration et des tests d'interface.</li>
-                                <li>Produire une documentation technique et fonctionnelle de l’application.</li>
-                                <li>Utiliser le réseau pour obtenir des informations.</li>
-                                <li>Comprendre et appliquer des Design Patterns pour assurer la stabilité de vos applications.</li>
-                                <li>Respecter les recommandations du Material Design afin de garantir la meilleure expérience utilisateur possible.</li>
-                            </ul>
-                            </p>
-
-                        </div>
-
-                    </div>   
-
-                </div> 
-
-            </div> 
-
-            <div class="row work">
-
-                <div class="three columns header-col">
-                    <h1><span>Emplois</span></h1>
-                </div>
-
-                <div class="nine columns main-col">
-
-                    <div class="row item">
-
-                        <div class="twelve columns">
-
-                            <h3>Développeur Web et Android - Fillon technologies</h3>
-                            <p class="info"> Faverolles <span>&bull;</span> <em class="date">Mars 2020 à aujourd'hui</em></p>
-                            <p>Actuellement en charge de l'amélioration de la logistique en développant différents logiciels informatiques Web et Android pour l'entreprise.</p>
-
-                            <p>
-                            <ul>
-                                <li><h5>Symfony</h5></li>
-                                
-                                <li>Mise en place d'un projet Symfony 5 (actuellement en Symfony 6) et du serveur pour l'héberger afin de réaliser les différents logiciels et projets de l'entreprise.</li>
-                                <li>Mise en place de l'étiquetage des produits fabriqués dans l'entreprise via des imprimantes de la marque Zebra (code directement dans l'imprimante en ZBI) qui permet d'avoir des imprimantes totalement autonomes sans présence d'un ordinateur.</li>
-                                <li>Création d'un logiciel complet pour l'exploitation de l'étiquetage mis en place dans l'usine afin d'améliorer la qualité de nos expéditions en vérifiant qu'il ne manque rien dans nos colis.</li>
-                                <li>Mise en place d'un système de fabrication assistée par ordinateur qui permet la déclaration des pièces fabriquées dans notre usine, la déclaration de l'activité des employés (fabrication, pause, administratif ..) afin d'améliorer la productivité et de mettre en place un logiciel permettant de suivre les fabrications. </li>
-                                <li>Remplacement des différents fichiers Excel de l'entreprise par une version web et ou amélioration des fichiers, afin de faciliter l'accessibilité ainsi que l'utilisation par les différents services.</li>
-                                <li><strong style="color:red;">Cybersécurité :</strong> Mise en place de campagnes de phishing et de sensibilisation aux risques de sécurité informatique sur la totalité des employés de l'entreprise, autoformation via la plateforme Udemy sur les différentes failles / mise en place de sécurité afin de prévenir des menaces potentiels / VPN ...</li>
-                                <li><br></li>
-                                <li><h5>Android</h5></li>
-                                <li>Réalisation d'une application mobile pour les expéditions et les caristes de l'entreprise, afin d'améliorer la qualité de nos expéditions et de gérer les déplacements de stock en interne.</li>
-                                <li>Affichage des stocks depuis l'application mobile.</li>
-                            </ul>
-                            </p>
-
-                        </div>
-
-                        <div class="twelve columns">
-
-                            <h3>Développeur Web - Omnitech</h3>
-                            <p class="info"> Le Kremlin Bicetre <span>&bull;</span> <em class="date">Janvier 2020 à mars 2020</em></p>
-
-                            <p>
-                            <ul>
-                                <li>Développement d'un site web avec Symfony afin d'aider le service des ressources humaines dans le recrutement.</li>
-                                <li>Réalisation des diagrammes de classes et de base de données pour le site.</li>
-                                <li>Corrections des retours concernant l'interface et ajout de nouvelles fonctionnalités.</li>
-                                <li>Déploiement du site en production.</li>
-                            </ul>
-                            </p>
-
-                        </div>
-
-                        <div class="twelve columns">
-
-                            <h3>Développeur Android - Omnitech security</h3>
-                            <p class="info"> Bordeaux <span>&bull;</span> <em class="date">Septembre 2019 à Décembre 2019</em></p>
-
-                            <p>
-                            <ul>
-                                <li>Développement d'une application mobile Android pour un client grand compte utilisant le Bluetooth Low Energy et le NFC.</li>
-                                <li>Réalisation des tests unitaires.</li>
-                                <li>Corrections des retours du client.</li>
-                                <li>Déploiement de l'application auprès du client.</li>
-                            </ul>
-                            </p>
-
-                        </div>
-
-                    </div> 
-
-                    <div class="row item">
-
-                        <div class="twelve columns">
-
-                            <h3>Développeur Android - Airweb</h3>
-                            <p class="info"> Saint Cloud <span>&bull;</span> <em class="date">Juin 2019 à Août 2019</em></p>
-
-                            <p>
-                            <ul>
-                                <li>Développement d'une application mobile Android pour un client grand compte ayant pour objectif l'apprentissage des matières du collège au lycée.</li>
-                                <li>Réalisation des tests unitaires.</li>
-                                <li>Déploiement de l'application sur le Google Play Store.</li>
-                            </ul>
-                            </p>
-
-                        </div>
-
-                    </div> 
-
-                    <div class="row item">
-
-                        <div class="twelve columns">
-
-                            <h3>Stage développeur Android - Airweb</h3>
-                            <p class="info"> Saint Cloud <span>&bull;</span> <em class="date">Janvier 2019 à Mai 2019</em></p>
-
-                            <p>
-                            <ul>
-                                <li>Développement d'une application mobile Android pour l'entreprise permettant la réalisation de build d'application via l'API de Bitrise.</li>
-                                <li>Mise à jour de l'application principale de l'entreprise concernant l'achat et l'utilisation de billet de train/metro dématérialisé.</li>
-                                <li>Réalisation des tests unitaires.</li>
-                            </ul>
-                            </p>
-
-                        </div>
-
-                    </div> 
-
-
-                </div>
-
+            <div class="stats" role="list" aria-label="Statistiques rapides">
+              <div class="stat" role="listitem"><b>7+ ans</b><span class="muted">d’expérience</span></div>
+              <div class="stat" role="listitem"><b>Android</b><span class="muted">Kotlin/Java</span></div>
+              <div class="stat" role="listitem"><b>Web</b><span class="muted">Symfony, APIs</span></div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        </section>
+    <!-- ====== RESUME ====== -->
+    <section id="resume" class="section">
+      <div class="container reveal">
+        <h2>Parcours</h2>
 
-        <section id="portfolio">
-
-            <div class="row">
-
-                <div class="twelve columns collapsed">
-
-                    <h1>Un aperçu de mon travail lors de ma formation</h1>
-
-                    <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
-
-                        <div class="columns portfolio-item">
-                            <div class="item-wrap">
-
-                                <a href="#modal-02" title="">
-                                    <img alt="" src="images/portfolio/p-remanager.PNG">
-                                    <div class="overlay">
-                                        <div class="portfolio-item-meta">
-                                            <h5> Real Estate Manager </h5>
-                                            <p> Openclassrooms </p>
-                                        </div>
-                                    </div>
-                                    <div class="link-icon"><i class="icon-plus"></i></div>
-                                </a>
-
-                            </div>
-                        </div> 
-
-                        <div class="columns portfolio-item">
-                            <div class="item-wrap">
-
-                                <a href="#modal-03" title="">
-                                    <img alt="" src="images/portfolio/p-go4lunch.PNG">
-                                    <div class="overlay">
-                                        <div class="portfolio-item-meta">
-                                            <h5> Go4Lunch </h5>
-                                            <p> Openclassrooms </p>
-                                        </div>
-                                    </div>
-                                    <div class="link-icon"><i class="icon-plus"></i></div>
-                                </a>
-
-                            </div>
-                        </div> 
-
-                        <div class="columns portfolio-item">
-                            <div class="item-wrap">
-
-                                <a href="#modal-04" title="">
-                                    <img alt="" src="images/portfolio/p-mynews.png">
-                                    <div class="overlay">
-                                        <div class="portfolio-item-meta">
-                                            <h5> My News </h5>
-                                            <p> Openclassrooms </p>
-                                        </div>
-                                    </div>
-                                    <div class="link-icon"><i class="icon-plus"></i></div>
-                                </a>
-
-                            </div>
-                        </div>
-
-                        <div class="columns portfolio-item">
-                            <div class="item-wrap">
-
-                                <a href="#modal-05" title="">
-                                    <img alt="" src="images/portfolio/p-moodtracker.png">
-                                    <div class="overlay">
-                                        <div class="portfolio-item-meta">
-                                            <h5> Moodtracker </h5>
-                                            <p> Openclassrooms </p>
-                                        </div>
-                                    </div>
-                                    <div class="link-icon"><i class="icon-plus"></i></div>
-                                </a>
-
-                            </div>
-                        </div>
-
-                    </div> 
-
-                </div>
-
-                <!-- MODAL -->
-
-                <div id="modal-02" class="popup-modal mfp-hide">
-
-                    <div class="description-box">
-                        <h3>Real Estate Manager</h3>
-                        <p><b>Contexte:<br /></b>
-                            Application de gestion immobilière permettant aux agents de travailler efficacement avec leur tablette ou leur smartphone et totalement hors ligne</p>
-                        <p><b> Technologies:</b><br />
-                        <ul>
-                            <li> Kotlin </li>
-                            <li> Google Maps API </li>
-                            <li> Dependency Injection </li>
-                            <li> Architecture Component </li>
-                            <li> Mvvm </li>
-                            <li> Retrofit </li>
-                            <li> RxJAVA </li>
-                            <li> Glide </li>
-                        </ul>
-                        </p>
-                        <span class="categories"><i class="fa fa-tag"></i>Openclassrooms projects</span>
-                    </div>
-
-                    <div class="link-box">
-                        <a href="https://github.com/Vincenthaesx/RealEstateManager" target="Repository">Détails</a>
-                        <a class="popup-modal-dismiss">Fermer</a>
-                    </div>
-
-                </div>
-
-                <div id="modal-03" class="popup-modal mfp-hide">
-
-                    <div class="description-box">
-                        <h3>Go4Lunch</h3>
-                        <p><b>Contexte:<br /></b>
-                            Vous ne savez jamais où aller déjeuner ni quels sont les collègues motivés à se joindre à vous ? Avec l'application Go4Lunch, vous allez passer de super moments avec vos collègues</p>
-                        <p><b> Technologies:</b><br />
-                        <ul>
-                            <li> Java </li>
-                            <li> Butterknife </li>
-                            <li> Google Maps API </li>
-                            <li> Google Places API </li>
-                            <li> Retrofit </li>
-                            <li> RxJAVA </li>
-                            <li> Glide </li>
-                            <li> MVC</li>
-                            <li> Firebase UI</li>
-                            <li> Firestore </li>
-                        </ul>
-                        </p>
-                        <span class="categories"><i class="fa fa-tag"></i>Openclassrooms projects</span>
-                    </div>
-
-                    <div class="link-box">
-                        <a href="https://github.com/Vincenthaesx/Go4Lunch" target="Repository">Détails</a>
-                        <a class="popup-modal-dismiss">Fermer</a>
-                    </div>
-
-                </div>
-
-                <div id="modal-04" class="popup-modal mfp-hide">
-
-                    <div class="description-box">
-                        <h3>My News</h3>
-                        <p><b>Contexte:<br /></b>
-                            Application Android permettant d'accéder aux articles publiés sur le site du New York Times, et d'être notifié lorsque de nouveaux articles sont disponibles</p>
-                        <p><b> Technologies:</b><br />
-                        <ul>
-                            <li> Kotlin </li>
-                            <li> Travis CI</li>
-                            <li> Espresso</li>
-                            <li> Retrofit</li>
-                            <li> RxJAVA</li>
-                            <li> Mvvm </li>
-                            <li> Glide</li>
-                        </ul>
-                        </p>
-                        <span class="categories"><i class="fa fa-tag"></i>Openclassrooms projects</span>
-                    </div>
-
-                    <div class="link-box">
-                        <a href="https://github.com/Vincenthaesx/MyNews" target="Repository">Détails</a>
-                        <a class="popup-modal-dismiss">Fermer</a>
-                    </div>
-
-                </div>
-
-                <div id="modal-05" class="popup-modal mfp-hide">
-
-                    <div class="description-box">
-                        <h3>Moodtracker </h3>
-                        <p><b>Contexte:<br /></b>
-                            Ma première application Android. Elle permet d'enregistrer l'humeur du jour de l'utilisateur et consulter son historique de la semaine</p>
-                        <p>
-                            <b> Technologies:</b><br />
-                        <ul>
-                            <li> Java </li>
-                            <li> Butterknife </li>
-                            <li> Glide </li>
-                            <li> MVC</li>
-                        </ul>
-                        </p>
-                        <span class="categories"><i class="fa fa-tag"></i>Openclassrooms projects</span>
-                    </div>
-
-                    <div class="link-box">
-                        <a href="https://github.com/Vincenthaesx/MoodTracker" target="Repository">Détails</a>
-                        <a class="popup-modal-dismiss">Fermer</a>
-                    </div>
-
-                </div>
-
-            </div> 
-
-        </section> 
-
-        <section id="testimonials">
-
-            <div class="text-container">
-
-                <div class="row">
-
-                    <div class="two columns header-col">
-
-                        <h1><span>Recommandations</span></h1>
-
-                    </div>
-
-                    <div class="ten columns flex-container">
-
-                        <div class="flexslider">
-
-                            <ul class="slides">
-
-                                <li>
-                                    <blockquote>
-                                        <p>Vincent était prestataire chez nous et a su s'adapter à notre environnement de travail. Il a été efficace dans le projet à réaliser grâce à ses connaissances techniques et à son enthousiasme. Vincent est d'une nature curieuse et est à l'écoute des conseils et directives. Un bon profil avec qui j'ai eu plaisir à travailler.
-                                        </p>
-                                        <b><font color="FFFFFF">Stanislas Dourdin</font></b> - <a href="https://www.linkedin.com/in/stanislasdourdin/" target="_blank"><u>LinkedIn</u></a>
-                                    </blockquote>
-                                </li> 
-
-                            </ul>
-
-                        </div> 
-
-                    </div>
-
-                </div>
-
-            </div>  
-
-        </section> 
-
-        <footer>
-
-            <div class="row">
-
-                <div class="twelve columns">
-
-                    <ul class="social-links">
-                        <li><a href="https://github.com/Vincenthaesx" target="_blank"><i class="fa fa-github"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/vincent-hais-946a5a165" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-
-                    <ul class="copyright">
-                        <li>&copy; Copyright 2014 CeeVee</li>
-                        <li>Design by <a href="http://www.styleshout.com/" title="Styleshout" target="_blank">Styleshout</a></li>   
-                    </ul>
-                </div>
-
-                <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
-
+<h3 class="muted" style="margin-top: 8px;">Expériences</h3>
+<ol class="timeline">
+<li class="t-item">
+<span class="t-dot" aria-hidden="true"></span>
+<div class="t-card">
+<h3>Développeur Web, Android & Administrateur Réseau — Fillon Technologies</h3>
+<div class="t-meta"><span>Faverolles</span><span>•</span><span>Mars 2020 – Aujourd’hui</span></div>
+<p>Responsable de l’amélioration de la logistique, du développement d’applications Web et Android, mais également de la partie administration réseau et du cloud. Un rôle complet, entre développement, infrastructure et DevOps.</p>
+<ul>
+<li>Mise en place d’un projet <b>Symfony</b> (hébergement, CI/CD) pour de multiples apps internes.</li>
+<li>Étiquetage produits automatisé <b>Zebra</b> (ZBI) et outils de contrôle qualité d’expédition.</li>
+<li><b>SFAO</b> : déclaration de fabrication, suivi d’activité, productivité et intégration ERP.</li>
+<li>Applications <b>Android</b> pour expéditions et caristes (stocks, déplacements, traçabilité).</li>
+<li><b>Cybersécurité</b> : campagnes de phishing & sensibilisation, durcissement, VPN.</li>
+<li><b>Administration réseau</b> : gestion des IP fixes, configuration et maintenance du firewall, supervision et maintenance des serveurs <b>Linux</b>, gestion des utilisateurs et stratégies <b>Active Directory</b>.</li>
+<li><b>Cloud & DevOps</b> : gestion des environnements cloud, conteneurisation, intégration continue, monitoring.</li>
+<li><b>Machine Daisy Wheel</b> : reprise du projet suite au départ du développeur en charge. Découverte et gestion de l’embarqué, développements en <b>C++/C</b> sur Odroid, déploiements, intégration du protocole Modbus, et évolution de l’interface en <b>Python</b> et Web.</li>
+</ul>
+</div>
+</li>
+          <li class="t-item">
+            <span class="t-dot" aria-hidden="true"></span>
+            <div class="t-card">
+              <h3>Développeur Web — Omnitech</h3>
+              <div class="t-meta"><span>Le Kremlin-Bicêtre</span><span>•</span><span>Janvier 2020 – Mars 2020</span></div>
+              <ul>
+                <li>Site Symfony pour le <b>recrutement RH</b> : conception schéma BD, features, déploiement.</li>
+              </ul>
             </div>
+          </li>
+          <li class="t-item">
+            <span class="t-dot" aria-hidden="true"></span>
+            <div class="t-card">
+              <h3>Développeur Android — Omnitech Security</h3>
+              <div class="t-meta"><span>Bordeaux</span><span>•</span><span>Septembre 2019 – Décembre 2019</span></div>
+              <ul>
+                <li>App Android <b>BLE</b> & <b>NFC</b> pour un grand compte : tests unitaires, corrections, livraison.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="t-item">
+            <span class="t-dot" aria-hidden="true"></span>
+            <div class="t-card">
+              <h3>Développeur Android — Airweb</h3>
+              <div class="t-meta"><span>Saint-Cloud</span><span>•</span><span>Juin 2019 – Août 2019</span></div>
+              <ul>
+                <li>App Android d’<b>apprentissage</b> (collège → lycée). Tests et publication Play Store.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="t-item">
+            <span class="t-dot" aria-hidden="true"></span>
+            <div class="t-card">
+              <h3>Stage Développeur Android — Airweb</h3>
+              <div class="t-meta"><span>Saint-Cloud</span><span>•</span><span>Janvier 2019 – Mai 2019</span></div>
+              <ul>
+                <li>App interne pour lancer des <b>builds Bitrise</b> ; contribution à l’app billetterie.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
 
-        </footer> 
+        <h3 class="muted" style="margin-top: 26px;">Freelance</h3>
+<ol class="timeline">
+<li class="t-item">
+<span class="t-dot" aria-hidden="true"></span>
+<div class="t-card">
+<h3>Mentorat — OpenClassrooms</h3>
+<div class="t-meta"><span>Remote</span><span>•</span><span>Depuis 2019</span></div>
+<p>Accompagnement d’élèves sur la formation Développeur d’application Android : suivi de projets, corrections, conseils techniques et pédagogiques.</p>
+</div>
+</li>
+<li class="t-item">
+<span class="t-dot" aria-hidden="true"></span>
+<div class="t-card">
+<h3>Développement site vitrine — Client indépendant</h3>
+<div class="t-meta"><span>Freelance</span><span>•</span><span>2024</span></div>
+<p>Réalisation d’un site vitrine moderne et responsive pour un client afin de mettre en avant son activité professionnelle.</p>
+</div>
+</li>
+<li class="t-item">
+<span class="t-dot" aria-hidden="true"></span>
+<div class="t-card">
+<h3>Logiciel de digitalisation d'un Self — Freelance</h3>
+<div class="t-meta"><span>Symfony & Android</span><span>•</span><span>2024 – 2025</span></div>
+<p>Développement complet d’un logiciel de gestion de tickets repas pour une entreprise :
+<ul>
+<li>Interface Web en <b>Symfony</b> pour la gestion des utilisateurs et transactions.</li>
+<li>Intégration d’un <b>TPE Smile&Pay</b> connecté pour l’achat de tickets.</li>
+<li>Application <b>Android</b> au self pour le scan des badges NFC.</li>
+<li>Système de passages journaliers, suivi des soldes, transactions en temps réel.</li>
+<li>Design moderne et intégration responsive avec DataTables, Bootstrap, SweetAlert2.</li>
+</ul>
+</p>
+</div>
+</li>
+</ol>
 
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>');</script>
-        <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+        <h3 class="muted" style="margin-top: 26px;">Études</h3>
+        <ol class="timeline">
+          <li class="t-item">
+            <span class="t-dot" aria-hidden="true"></span>
+            <div class="t-card">
+              <h3>Développeur d’applications — Diplôme RNCP niv. II (bac +4)</h3>
+              <div class="t-meta"><span>OpenClassrooms</span><span>•</span><span>Juin 2018 – Juin 2019</span></div>
+              <ul>
+                <li>Analyse de cahier des charges et choix des solutions techniques.</li>
+                <li>Architecture, <b>UML</b>, <b>tests</b> (unitaires / intégration / UI).</li>
+                <li>Android (<b>Java</b>, <b>Kotlin</b>), <b>Material Design</b>, <b>Retrofit</b>, <b>RxJava</b>, <b>MVVM</b>.</li>
+                <li>Base de données, documentation technique & fonctionnelle.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-        <script src="js/jquery.flexslider.js"></script>
-        <script src="js/waypoints.js"></script>
-        <script src="js/jquery.fittext.js"></script>
-        <script src="js/magnific-popup.js"></script>
-        <script src="js/init.js"></script>
+    <!-- ====== PORTFOLIO ====== -->
+    <section id="portfolio" class="section">
+      <div class="container reveal">
+        <h2>Portfolio</h2>
+        <p class="muted" style="margin-bottom:18px">Un aperçu de mes projets réalisés lors de ma formation OpenClassrooms.</p>
+        <div class="grid">
+          <!-- Real Estate Manager -->
+          <article class="card" aria-labelledby="p1-title">
+            <figure>
+              <img src="images/portfolio/p-remanager.PNG" alt="Capture d’écran du projet Real Estate Manager" loading="lazy" />
+            </figure>
+            <div class="body">
+              <h3 id="p1-title">Real Estate Manager</h3>
+              <p>App de gestion immobilière <b>offline-first</b>. <span class="muted">Kotlin • MVVM • Retrofit • RxJava • Google Maps API • DI</span></p>
+              <div class="links">
+                <a class="btn btn-outline" href="https://github.com/Vincenthaesx/RealEstateManager" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+          </article>
 
-    </body>
+          <!-- Go4Lunch -->
+          <article class="card" aria-labelledby="p2-title">
+            <figure>
+              <img src="images/portfolio/p-go4lunch.PNG" alt="Capture d’écran du projet Go4Lunch" loading="lazy" />
+            </figure>
+            <div class="body">
+              <h3 id="p2-title">Go4Lunch</h3>
+              <p>Trouvez où déjeuner avec vos collègues. <span class="muted">Java • Retrofit • RxJava • Google Maps/Places • MVC • Firebase UI • Firestore</span></p>
+              <div class="links">
+                <a class="btn btn-outline" href="https://github.com/Vincenthaesx/Go4Lunch" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+          </article>
 
+          <!-- My News -->
+          <article class="card" aria-labelledby="p3-title">
+            <figure>
+              <img src="images/portfolio/p-mynews.png" alt="Capture d’écran du projet My News" loading="lazy" />
+            </figure>
+            <div class="body">
+              <h3 id="p3-title">My News</h3>
+              <p>Lecteur d’actualités du <b>New York Times</b> avec notifications. <span class="muted">Kotlin • MVVM • Retrofit • RxJava • Glide • Espresso • Travis CI</span></p>
+              <div class="links">
+                <a class="btn btn-outline" href="https://github.com/Vincenthaesx/MyNews" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- MoodTracker -->
+          <article class="card" aria-labelledby="p4-title">
+            <figure>
+              <img src="images/portfolio/p-moodtracker.png" alt="Capture d’écran du projet MoodTracker" loading="lazy" />
+            </figure>
+            <div class="body">
+              <h3 id="p4-title">MoodTracker</h3>
+              <p>Suivi de l’humeur quotidienne. <span class="muted">Java • MVC • Glide • ButterKnife</span></p>
+              <div class="links">
+                <a class="btn btn-outline" href="https://github.com/Vincenthaesx/MoodTracker" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TESTIMONIALS ====== -->
+    <section id="testimonials" class="section">
+      <div class="container reveal">
+        <h2>Recommandations</h2>
+        <blockquote>
+          « Vincent était prestataire chez nous et a su s'adapter à notre environnement de travail. Il a été efficace dans le projet à réaliser grâce à ses connaissances techniques et à son enthousiasme. Vincent est d'une nature curieuse et est à l'écoute des conseils et directives. Un bon profil avec qui j'ai eu plaisir à travailler. »
+          <cite>— <b>Stanislas Dourdin</b> · <a href="https://www.linkedin.com/in/stanislasdourdin/" target="_blank" rel="noopener">LinkedIn</a></cite>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container f-row">
+      <small>© <span id="year"></span> Vincent Hais. Tous droits réservés.</small>
+      <div class="socials">
+        <a href="https://github.com/Vincenthaesx" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.36-1.77-1.36-1.77-1.11-.76.08-.75.08-.75 1.22.09 1.86 1.26 1.86 1.26 1.09 1.86 2.86 1.33 3.56 1.02.11-.79.43-1.33.78-1.64-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.25-3.22-.13-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.25 2.86.12 3.16.78.84 1.25 1.91 1.25 3.22 0 4.61-2.8 5.62-5.47 5.92.44.38.83 1.12.83 2.26v3.35c0 .32.21.69.82.58A12 12 0 0 0 12 .5Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/vincent-hais-946a5a165" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.44-2.14 2.94v5.67H9.36V9h3.4v1.56h.05c.47-.89 1.62-1.83 3.34-1.83 3.57 0 4.23 2.35 4.23 5.4v6.32ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="Remonter en haut" title="Remonter">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <!-- JSON-LD Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Vincent Hais",
+    "jobTitle": "Développeur Android & Web Symfony",
+    "url": "https://vincenthais.dev",
+    "sameAs": [
+      "https://github.com/Vincenthaesx",
+      "https://www.linkedin.com/in/vincent-hais-946a5a165"
+    ],
+    "email": "mailto:haisvincentapb@hotmail.com"
+  }
+  </script>
+
+  <script>
+    // ===== Utilitaires =====
+    const qs = (s, r = document) => r.querySelector(s);
+    const qsa = (s, r = document) => [...r.querySelectorAll(s)];
+
+    // ===== Menu mobile =====
+    const menuBtn = qs('#menuBtn');
+    const navLinks = qs('#navLinks');
+    menuBtn?.addEventListener('click', () => {
+      const show = !navLinks.classList.contains('show');
+      navLinks.classList.toggle('show', show);
+      menuBtn.setAttribute('aria-expanded', String(show));
+    });
+    qsa('#navLinks a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('show')));
+
+    // ===== Thème (clair/sombre) =====
+    const themeBtn = qs('#themeBtn');
+    const savedTheme = localStorage.getItem('vh-theme');
+    if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+    themeBtn?.addEventListener('click', () => {
+      const current = document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('vh-theme', next);
+    });
+
+    // Apply theme variables when toggled
+    const observer = new MutationObserver(() => {
+      // When dataset.theme changes we could adjust CSS vars if we had separate sets.
+      // Here we rely on prefers-color-scheme + overrides; kept for extensibility.
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    // ===== Scrollspy (lien actif) =====
+    const links = qsa('.nav-links a');
+    const sections = links.map(a => qs(a.getAttribute('href'))).filter(Boolean);
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = '#' + entry.target.id;
+        const link = qs(`.nav-links a[href="${id}"]`);
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          link?.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-50% 0px -49% 0px', threshold: 0 });
+    sections.forEach(sec => spy.observe(sec));
+
+    // ===== Reveal animations =====
+    const revealEls = qsa('.reveal');
+    const revObs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          o.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => revObs.observe(el));
+
+    // ===== Back to top =====
+    const toTop = qs('#toTop');
+    const onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      toTop.classList.toggle('show', y > 400);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ===== Année dynamique =====
+    qs('#year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
